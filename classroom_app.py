@@ -1,6 +1,6 @@
 import openai
-import json
 import os
+import student_db
 
 # --- Configuración de la API de OpenAI ---
 # ADVERTENCIA DE SEGURIDAD IMPORTANTE:
@@ -40,6 +40,7 @@ try:
     # Prueba de conexión simple para validar la clave
     client.models.list()
     print("Conexión con OpenAI establecida y clave API validada.")
+    student_db.init_db()
 except openai.AuthenticationError:
     print("--------------------------------------------------------------------------------")
     print("Error de Autenticación con OpenAI:")
@@ -54,24 +55,15 @@ except Exception as e:
     exit()
 
 
-STUDENTS_FILE = "students.json"
-MAX_STUDENTS = 0 # 0 significa sin límite, se puede cambiar
+MAX_STUDENTS = 0  # 0 significa sin límite, se puede cambiar
 
 def load_students():
-    """Carga los estudiantes desde el archivo JSON."""
-    try:
-        with open(STUDENTS_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return []
-    except json.JSONDecodeError:
-        print(f"Advertencia: El archivo {STUDENTS_FILE} está corrupto o no es un JSON válido. Empezando con una lista vacía.")
-        return []
+    """Carga los estudiantes desde la base de datos."""
+    return student_db.load_students()
 
 def save_students(students):
-    """Guarda los estudiantes en el archivo JSON."""
-    with open(STUDENTS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(students, f, indent=4, ensure_ascii=False)
+    """Guarda los estudiantes en la base de datos."""
+    student_db.save_students(students)
 
 def add_student(students_list):
     """Agrega un nuevo estudiante a la lista."""
@@ -94,13 +86,14 @@ def add_student(students_list):
     tastes = input("Gustos (ej: videojuegos, lectura de ciencia ficción, debates filosóficos): ").strip()
     extra_info = input("Información extra (opcional): ").strip()
 
-    students_list.append({
+    new_student = {
         "name": name,
         "personality": personality,
         "tastes": tastes,
         "extra_info": extra_info
-    })
-    save_students(students_list)
+    }
+    students_list.append(new_student)
+    student_db.add_student(new_student)
     print(f"Estudiante '{name}' agregado exitosamente.")
 
 def view_students(students_list):

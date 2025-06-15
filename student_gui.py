@@ -1,23 +1,16 @@
-import json
-import os
 import tkinter as tk
 from tkinter import messagebox
+import student_db
 
-STUDENTS_FILE = "students.json"
 MAX_STUDENTS = 0  # 0 means unlimited
 
 
 def load_students():
-    try:
-        with open(STUDENTS_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        return []
+    return student_db.load_students()
 
 
 def save_students(students):
-    with open(STUDENTS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(students, f, indent=4, ensure_ascii=False)
+    student_db.save_students(students)
 
 
 def add_student():
@@ -41,13 +34,14 @@ def add_student():
             f"Se alcanzó el máximo de estudiantes ({MAX_STUDENTS}).")
         return
 
-    students.append({
+    new_student = {
         "name": name,
         "personality": personality,
         "tastes": tastes,
         "extra_info": extra
-    })
-    save_students(students)
+    }
+    students.append(new_student)
+    student_db.add_student(new_student)
     students_listbox.insert(tk.END, name)
     name_entry.delete(0, tk.END)
     personality_entry.delete(0, tk.END)
