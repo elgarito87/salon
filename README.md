@@ -2,6 +2,8 @@
 
 Esta aplicación permite simular un salón de clases donde cada estudiante, con una personalidad y gustos definidos, proporciona retroalimentación sobre cómo le gustaría aprender un tema específico.
 Utiliza la API de OpenAI para generar las respuestas de los estudiantes.
+Los perfiles de los alumnos ahora se guardan en una base de datos
+`SQLite` llamada `students.db`.
 
 ## Configuración
 
