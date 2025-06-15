@@ -12,28 +12,10 @@ import student_db
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 if not OPENAI_API_KEY:
-    # Si no se encuentra en variable de entorno, usa la clave proporcionada
-    # SOLO PARA DESARROLLO LOCAL Y CON CONOCIMIENTO DEL RIESGO.
-    # REEMPLAZA ESTO ANTES DE COMPARTIR O SUBIR A GITHUB.
-    PROVIDED_API_KEY = "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" # Clave proporcionada por el USER
-    print("--------------------------------------------------------------------------------")
-    print("ADVERTENCIA DE SEGURIDAD MUY IMPORTANTE:")
-    print("Estás utilizando una clave API de OpenAI directamente en el código.")
-    print("Esto es EXTREMADAMENTE INSEGURO si este código se comparte o sube a GitHub.")
-    print("La clave podría ser robada y usada maliciosamente, generando costos para ti.")
-    print("POR FAVOR, configura la variable de entorno OPENAI_API_KEY y elimina la clave del código.")
-    print("Ejemplo en PowerShell: $env:OPENAI_API_KEY=\"tu_clave_real_aqui\"")
-    print("Ejemplo en bash/zsh: export OPENAI_API_KEY=\"tu_clave_real_aqui\"")
-    print("El script continuará usando la clave hardcodeada por ahora, bajo tu responsabilidad.")
-    print("--------------------------------------------------------------------------------\n")
-    OPENAI_API_KEY = PROVIDED_API_KEY
-else:
-    print("Clave API de OpenAI cargada desde la variable de entorno OPENAI_API_KEY.")
-
-if not OPENAI_API_KEY:
-    print("Error fatal: No se pudo obtener la clave API de OpenAI.")
-    print("Configura la variable de entorno OPENAI_API_KEY o asegúrate de que la clave esté disponible.")
-    exit()
+    print("Error: La variable de entorno OPENAI_API_KEY es obligatoria.")
+    print("Configura la variable de entorno y vuelve a ejecutar la aplicacion.")
+    exit(1)
+print("Clave API de OpenAI cargada desde la variable de entorno OPENAI_API_KEY.")
 
 try:
     client = openai.OpenAI(api_key=OPENAI_API_KEY)

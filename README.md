@@ -18,7 +18,7 @@ La aplicación se ha probado con Python 3.10 como versión mínima recomendada.
     source venv/bin/activate  # En Windows: venv\Scripts\activate
     pip install -r requirements.txt
     ```
-3.  (Recomendado) Configura tu clave de API de OpenAI como una variable de entorno llamada `OPENAI_API_KEY`.
+3.  Configura tu clave de API de OpenAI como una variable de entorno llamada `OPENAI_API_KEY` (obligatorio). La aplicación no se ejecutará si no la proporcionas.
     *   En Windows (PowerShell): `$env:OPENAI_API_KEY="tu_clave_aqui"`
     *   En Linux/macOS: `export OPENAI_API_KEY="tu_clave_aqui"`
     *   Asegúrate de reemplazar `"tu_clave_aqui"` con tu clave real.
