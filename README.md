@@ -17,6 +17,8 @@ Utiliza la API de OpenAI para generar las respuestas de los estudiantes.
     *   En Linux/macOS: `export OPENAI_API_KEY="tu_clave_aqui"`
     *   Asegúrate de reemplazar `"tu_clave_aqui"` con tu clave real.
 4.  Ejecuta la aplicación: `python classroom_app.py`
+5.  Para una interfaz gráfica sencilla de captura de estudiantes, ejecuta
+    `python student_gui.py`.
 
 ## Uso
 
