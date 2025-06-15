@@ -4,6 +4,10 @@ Esta aplicación permite simular un salón de clases donde cada estudiante, con 
 Utiliza la API de OpenAI para generar las respuestas de los estudiantes.
 Los perfiles de los alumnos ahora se guardan en una base de datos
 `SQLite` llamada `students.db`.
+El módulo `student_db.py` crea esta base de datos de forma automática la primera
+vez que ejecutes la aplicación.
+
+La aplicación se ha probado con Python 3.10 como versión mínima recomendada.
 
 ## Configuración
 
