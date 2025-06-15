@@ -19,6 +19,9 @@ Utiliza la API de OpenAI para generar las respuestas de los estudiantes.
 4.  Ejecuta la aplicación: `python classroom_app.py`
 5.  Para una interfaz gráfica sencilla de captura de estudiantes, ejecuta
     `python student_gui.py`.
+6.  Para una interfaz con asientos interactivos y generación de
+    retroalimentación, ejecuta
+    `python classroom_seating_gui.py`.
 
 ## Uso
 
