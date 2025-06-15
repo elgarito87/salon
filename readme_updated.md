@@ -17,4 +17,30 @@ Una aplicación completa para simular un salón de clases donde cada estudiante,
 - Clave API de OpenAI
 - Bibliotecas: `openai`, `tkinter`, `sqlite3`
 
-## 🚀 Instalación y
+## 🚀 Instalación y Configuración
+
+1. Clona este repositorio.
+2. Crea un entorno virtual e instala las dependencias:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # En Windows: venv\Scripts\activate
+    pip install -r requirements_updated.txt
+    ```
+3. Configura la clave de API de OpenAI en la variable de entorno `OPENAI_API_KEY`.
+    * Windows (PowerShell): `$env:OPENAI_API_KEY="tu_clave_aqui"`
+    * Linux/macOS: `export OPENAI_API_KEY="tu_clave_aqui"`
+4. Inicia la aplicación desde la línea de comandos:
+    `python classroom_app.py`
+5. Si prefieres una interfaz con asientos y control visual, ejecuta:
+    `python enhanced_classroom_gui.py`
+
+## 🖥️ Uso Básico
+
+- Agrega o edita estudiantes con sus perfiles.
+- Selecciona un tema de aprendizaje.
+- Consulta la retroalimentación generada para cada estudiante.
+- Revisa el historial y las métricas en la interfaz gráfica.
+
+## 🔐 Advertencia de Seguridad
+
+No incluyas tu clave de API de OpenAI en repositorios públicos. Utiliza siempre variables de entorno para mantenerla privada.
