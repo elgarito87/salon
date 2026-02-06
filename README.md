@@ -28,6 +28,8 @@ La aplicación se ha probado con Python 3.10 como versión mínima recomendada.
 6.  Para una interfaz con asientos interactivos y generación de
     retroalimentación, ejecuta
     `python classroom_seating_gui.py`.
+7.  Para ejecutar una simulación sencilla de una célula (ideal para correr en un celular/terminal móvil), ejecuta
+    `python cell_simulation_mobile.py`.
 
 ## Uso
 
